@@ -1,0 +1,68 @@
+a:link{
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
+
+textarea {
+    min-height: 400px;
+}
+
+td{
+    vertical-align: middle;
+    padding-left: 7px;
+}
+
+tr:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 6px  #999;
+    transition: all .1s ease-out;
+}
+
+tr:hover .icon{
+    visibility: visible;
+
+}
+
+
+.icon{
+    visibility: hidden;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    display: inline-block;
+    margin-top:4px ;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-position: 50% 50%;
+    background-size: cover; 
+    /* background-size: contain; */
+    z-index: 10;
+}
+
+
+.tiptext {
+    visibility: hidden;
+    width: 70px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px; 
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    position: absolute;
+    z-index: 1;
+}
+
+
+.icon:hover .tiptext {
+    visibility: visible;
+}
+/* 
+#email-content{
+
+} */
