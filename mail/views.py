@@ -21,7 +21,7 @@ def index(request):
         return HttpResponseRedirect(reverse("login"))
 
 
-@csrf_exempt
+# @csrf_exempt
 @login_required
 def compose(request):
 
@@ -39,7 +39,6 @@ def compose(request):
     # Convert email addresses to users
     recipients = []
     for email in emails:
-        print(email)
         try:
             user = User.objects.get(email=email)
             recipients.append(user)
@@ -62,13 +61,12 @@ def compose(request):
             sender=request.user,
             subject=subject,
             body=body,
-            read=user == request.user
+            # read=user == request.user
         )
         email.save()
         for recipient in recipients:
             email.recipients.add(recipient)
         email.save()
-    print(email)
     return JsonResponse({"message": "Email sent successfully."}, status=201)
 
 
@@ -98,7 +96,6 @@ def mailbox(request, mailbox):
 @csrf_exempt
 @login_required
 def email(request, email_id):
-
     # Query for requested email
     try:
         email = Email.objects.get(user=request.user, pk=email_id)
@@ -116,7 +113,6 @@ def email(request, email_id):
             email.read = data["read"]
         if data.get("archived") is not None:
             email.archived = data["archived"]
-            # print(email.archived)
         email.save()
         return HttpResponse(status=204)
 
@@ -169,7 +165,6 @@ def register(request):
             user = User.objects.create_user(email, email, password)
             user.save()
         except IntegrityError as e:
-            print(e)
             return render(request, "mail/register.html", {
                 "message": "Email address already taken."
             })

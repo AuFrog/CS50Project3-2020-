@@ -12,23 +12,27 @@ textarea {
 td{
     vertical-align: middle;
     padding-left: 7px;
+
+}
+tr{
+    border-top:#cccccc solid 1px;
+    border-bottom:#cccccc solid 1px;
 }
 
 tr:hover {
-    transform: translateY(-3px);
+    /* transform: translateY(-0px); */
     box-shadow: 0 0 6px  #999;
     transition: all .1s ease-out;
 }
 
 tr:hover .icon{
     visibility: visible;
-
 }
 
 
 .icon{
     visibility: hidden;
-    width: 25px;
+    width: 27px;
     height: 25px;
     position: relative;
     display: inline-block;
@@ -58,11 +62,16 @@ tr:hover .icon{
     z-index: 1;
 }
 
+.icon:hover{
+    cursor:pointer;
+}
 
 .icon:hover .tiptext {
     visibility: visible;
+    
 }
-/* 
-#email-content{
 
-} */
+
+#email-content {
+    white-space: pre-wrap;
+ }
